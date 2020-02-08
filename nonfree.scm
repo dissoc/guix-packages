@@ -1,4 +1,4 @@
-(define-module (ambrevar linux-custom)
+(define-module (nonfree)
   #:use-module (guix gexp)
   #:use-module (guix packages)
   #:use-module (guix download)
