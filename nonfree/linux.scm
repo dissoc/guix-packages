@@ -27,7 +27,9 @@
     ;;  `(("kconfig" ,(local-file "./linux-custom.conf"))
     ;;    ,@(alist-delete "kconfig" (package-native-inputs linux-libre))
 
-       ))))
+    ;;    ))
+
+    ))
 
 (define (linux-firmware-version) "9d40a17beaf271e6ad47a5e714a296100eef4692")
 (define (linux-firmware-source version)
