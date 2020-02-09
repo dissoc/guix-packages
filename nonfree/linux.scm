@@ -22,7 +22,7 @@
 	"linux-" version ".tar.xz"))
       (sha256
        (base32
-        "12ad4fnxag16ar2afiljv4nnv15i4f493sz6m7i9qgjld7yz3scj"	))))
+        "12ad4fnxag16ar2afiljv4nnv15i4f493sz6m7i9qgjld7yz3scj"))))
     ;; (native-inputs
     ;;  `(("kconfig" ,(local-file "./linux-custom.conf"))
     ;;    ,@(alist-delete "kconfig" (package-native-inputs linux-libre))
@@ -31,7 +31,7 @@
 
     ))
 
-(define (linux-firmware-version) "04e0b4cf4caee531448671c8a836223f05b72ba6")
+(define (linux-firmware-version) "1eb2408c6feacccd10b02a49214745f15d1c6fb7")
 (define (linux-firmware-source version)
   (origin
     (method git-fetch)
