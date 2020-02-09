@@ -18,7 +18,7 @@
       (method url-fetch)
       (uri
        (string-append
-	"https://www.kernel.org/pub/linux/kernel/v4.x/"
+	"https://www.kernel.org/pub/linux/kernel/v5.x/"
 	"linux-" version ".tar.xz"))
       (sha256
        (base32
