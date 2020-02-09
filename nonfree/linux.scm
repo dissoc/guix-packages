@@ -23,9 +23,11 @@
       (sha256
        (base32
 	"1lm2s9yhzyqra1f16jrjwd66m3jl43n5k7av2r9hns8hdr1smmw4"))))
-    (native-inputs
-     `(("kconfig" ,(local-file "./linux-custom.conf"))
-       ,@(alist-delete "kconfig" (package-native-inputs linux-libre))))))
+    ;; (native-inputs
+    ;;  `(("kconfig" ,(local-file "./linux-custom.conf"))
+    ;;    ,@(alist-delete "kconfig" (package-native-inputs linux-libre))
+
+       ))))
 
 (define (linux-firmware-version) "9d40a17beaf271e6ad47a5e714a296100eef4692")
 (define (linux-firmware-source version)
