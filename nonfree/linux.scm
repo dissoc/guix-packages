@@ -31,7 +31,7 @@
 
     ))
 
-(define (linux-firmware-version) "9d40a17beaf271e6ad47a5e714a296100eef4692")
+(define (linux-firmware-version) "04e0b4cf4caee531448671c8a836223f05b72ba6")
 (define (linux-firmware-source version)
   (origin
     (method git-fetch)
@@ -42,7 +42,7 @@
     (file-name (string-append "linux-firmware-" version "-checkout"))
     (sha256
      (base32
-      "099kll2n1zvps5qawnbm6c75khgn81j8ns0widiw0lnwm8s9q6ch"))))
+      "15nkz8hp17gyxx365aq048nmcvyzhi18avqbywhglrbwvi9b5hgs"))))
 
 (define-public linux-firmware-iwlwifi
   (package
