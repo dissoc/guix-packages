@@ -42,7 +42,7 @@
     (file-name (string-append "linux-firmware-" version "-checkout"))
     (sha256
      (base32
-      "15nkz8hp17gyxx365aq048nmcvyzhi18avqbywhglrbwvi9b5hgs"))))
+      "0256p99bqwf1d1s6gqnzpjcdmg6skcp1jzz64sd1p29xxrf0pzfa"))))
 
 (define-public linux-firmware-iwlwifi
   (package
