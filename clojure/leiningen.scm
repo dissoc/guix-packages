@@ -44,48 +44,48 @@
 
 (define-public leiningen
   (package
-   (name "leiningen")
-   (version "2.9.1")
-   (source (origin
-            (method url-fetch)
-            ;; supposedly the .zip is actually a .jar but github
-            ;; doesnt allow jar releases or something?
-            ;; i saw that mentioned somewhere but dont recall the source
-            ;; if you java -jar it seems to work so maybe it's true?
-            ;; let me know if you know
-            (uri (string-append
-                  "https://github.com/technomancy/leiningen/releases/download/"
-                  version "/leiningen-" version "-standalone.zip"))
-            (sha256
-             (base32
-              "1y2mva5s2w2szzn1b9rhz0dvkffls4ravii677ybcf2w9wd86z7a"))))
-   (build-system gnu-build-system)
-   (arguments
-    `(#:tests? #f ; no "check" target
-      #:phases
-      (modify-phases %standard-phases
+               (name "leiningen")
+               (version "2.9.1")
+               (source (origin
+                        (method url-fetch)
+                        ;; supposedly the .zip is actually a .jar but github
+                        ;; doesnt allow jar releases or something?
+                        ;; i saw that mentioned somewhere but dont recall the source
+                        ;; if you java -jar it seems to work so maybe it's true?
+                        ;; let me know if you know
+                        (uri (string-append
+                              "https://github.com/technomancy/leiningen/releases/download/"
+                              version "/leiningen-" version "-standalone.zip"))
+                        (sha256
+                         (base32
+                          "1y2mva5s2w2szzn1b9rhz0dvkffls4ravii677ybcf2w9wd86z7a"))))
+               (build-system gnu-build-system)
+               (arguments
+                `(#:tests? #f ; no "check" target
+                  #:phases
+                  (modify-phases %standard-phases
 
-                     (replace 'build
-                              (lambda _
-                                (setenv "JAVA_HOME"
-                                        (assoc-ref %build-inputs "icedtea7"))
-                                ;; Disable tests to avoid dependency on hamcrest-core, which needs
-                                ;; Ant to build.  This is necessary in addition to disabling the
-                                ;; "check" phase, because the dependency on "test-jar" would always
-                                ;; result in the tests to be run.
-                                (system* "bash" "builder.sh"
-                                         (string-append "-Ddist.dir="
-                                                        (assoc-ref %outputs "out")))))
-                     (delete 'configure)
-                     (delete 'unpack)
-                     (delete 'install))))
-   (native-inputs
-    `(("builder.sh" ,builder.sh)
-      ("lein-pkg" ,lein-pkg)))
-   (inputs
-    `(("icedtea" ,icedtea "jdk")))
-   (home-page "http://leiningen.org/")
-   (synopsis "Project automation for Clojure")
-   (description
-    "")
-   (license license:epl1.0)))
+                                 (replace 'build
+                                          (lambda _
+                                            (setenv "JAVA_HOME"
+                                                    (assoc-ref %build-inputs "icedtea"))
+                                            ;; Disable tests to avoid dependency on hamcrest-core, which needs
+                                            ;; Ant to build.  This is necessary in addition to disabling the
+                                            ;; "check" phase, because the dependency on "test-jar" would always
+                                            ;; result in the tests to be run.
+                                            (system* "bash" "builder.sh"
+                                                     (string-append "-Ddist.dir="
+                                                                    (assoc-ref %outputs "out")))))
+                                 (delete 'configure)
+                                 (delete 'unpack)
+                                 (delete 'install))))
+               (native-inputs
+                `(("builder.sh" ,builder.sh)
+                  ("lein-pkg" ,lein-pkg)))
+               (inputs
+                ;; first is label, second is package and origin
+                `(("icedtea" ,icedtea "jdk")))
+               (home-page "http://leiningen.org/")
+               (synopsis "Project automation for Clojure")
+               (description "")
+               (license license:epl1.0)))
