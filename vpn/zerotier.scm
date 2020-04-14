@@ -19,7 +19,7 @@
              (commit version)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "1jbn593iqxkna318h60mjw7vrcrhn1fvvi85i4fk49zs2g3phdn6"))))
+        (base32  "1jbn593iqxkna318h60mjw7vrcrhn1fvvi85i4fk49zs2g3phdn6"))))
     (build-system gnu-build-system)
     (arguments
      `(#:make-flags (list (string-append "DESTDIR=" (assoc-ref %outputs "out")))
