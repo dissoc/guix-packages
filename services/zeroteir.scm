@@ -1,6 +1,9 @@
 (define-module (services zeroteir)
   #:use-module (vpn zerotier)
   #:use-module (guix gexp)
+  #:use-module (gnu services shepherd)
+  #:use-module (gnu services)
+  #:use-module (guix packages)
   #:use-module (gnu packages admin)
   #:use-module (gnu system shadow))
 
@@ -31,11 +34,11 @@
          (shell (file-append shadow "/sbin/nologin")))))
 
 
-;; ;; maybe dont need
-;; (define %zerotier-activation
-;;   #~(begin
-;;       (use-modules (guix build utils))
-;;       (mkdir-p "/var/run/zerotier")))
+;; maybe dont need
+(define %zerotier-activation
+  #~(begin
+      (use-modules (guix build utils))
+      (mkdir-p "/var/run/zerotier")))
 
 ;; (define zerotier-service-type
 ;;   (service-type (name 'zerotier-client)
