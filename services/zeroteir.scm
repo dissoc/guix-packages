@@ -16,15 +16,15 @@
                        (list (string-append #$zerotier-package "/sbin/zerotier-one"))))
              (stop #~(make-kill-destructor)))))))
 
-;; (define %zerotier-accounts
-;;   (list (user-group (name "zerotier") (system? #t))
-;;         (user-account
-;;          (name "zerotier")
-;;          (group "zerotier")
-;;          (system? #t)
-;;          (comment "zerotier daemon user")
-;;          (home-directory "/var/empty")
-;;          (shell (file-append shadow "/sbin/nologin")))))
+(define %zerotier-accounts
+  (list (user-group (name "zerotier") (system? #t))
+        (user-account
+         (name "zerotier")
+         (group "zerotier")
+         (system? #t)
+         (comment "zerotier daemon user")
+         (home-directory "/var/empty")
+         (shell (file-append shadow "/sbin/nologin")))))
 
 
 ;; ;; maybe dont need
