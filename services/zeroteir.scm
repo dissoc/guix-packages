@@ -4,17 +4,17 @@
 
 
 
-;; (define (zerotier-shepherd-service)
-;;   (lambda ()
-;;     (let* ((log-file "/var/log/zerotier.log")
-;;            (zerotier-package (package zerotier-one)))
-;;       (list (shepherd-service
-;;              (documentation "Run zerotier service")
-;;              (provision '(zerotier-one))
-;;              (requirement '(networking))
-;;              (start #~(make-forkexec-constructor
-;;                        (list (string-append #$zerotier-package "/sbin/zerotier-one"))))
-;;              (stop #~(make-kill-destructor)))))))
+(define (zerotier-shepherd-service)
+  (lambda ()
+    (let* ((log-file "/var/log/zerotier.log")
+           (zerotier-package (package zerotier-one)))
+      (list (shepherd-service
+             (documentation "Run zerotier service")
+             (provision '(zerotier-one))
+             (requirement '(networking))
+             (start #~(make-forkexec-constructor
+                       (list (string-append #$zerotier-package "/sbin/zerotier-one"))))
+             (stop #~(make-kill-destructor)))))))
 
 ;; (define %zerotier-accounts
 ;;   (list (user-group (name "zerotier") (system? #t))
