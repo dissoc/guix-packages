@@ -1,5 +1,5 @@
 (define-module (services zeroteir)
-  ;;#:use-module (vpn zerotier)
+  #:use-module (vpn zerotier)
   )
 
 
