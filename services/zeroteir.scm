@@ -5,7 +5,8 @@
   #:use-module (gnu services)
   #:use-module (guix packages)
   #:use-module (gnu packages admin)
-  #:use-module (gnu system shadow))
+  #:use-module (gnu system shadow)
+  #:export (zerotier-service-type))
 
 
 
@@ -44,7 +45,7 @@
       (use-modules (guix build utils))
       (mkdir-p "/var/run/zerotier")))
 
-(define-public zerotier-service-type
+(define zerotier-service-type
   (service-type (name 'zerotier-client)
                 (extensions
                  (list (service-extension shepherd-root-service-type
