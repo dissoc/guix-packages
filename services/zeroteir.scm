@@ -44,7 +44,7 @@
       (use-modules (guix build utils))
       (mkdir-p "/var/run/zerotier")))
 
-(define zerotier-service-type
+(define-public zerotier-service-type
   (service-type (name 'zerotier-client)
                 (extensions
                  (list (service-extension shepherd-root-service-type
