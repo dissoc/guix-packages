@@ -1,5 +1,6 @@
 (define-module (services zeroteir)
   #:use-module (vpn zerotier)
+  #:use-module (gnu system shadow)
   )
 
 
@@ -17,7 +18,8 @@
              (stop #~(make-kill-destructor)))))))
 
 (define %zerotier-accounts
-  (list (user-group (name "zerotier") (system? #t))
+  (list (user-group (name "zerotier")
+                    (system? #t))
         (user-account
          (name "zerotier")
          (group "zerotier")
