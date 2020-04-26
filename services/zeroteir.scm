@@ -44,12 +44,12 @@
       (use-modules (guix build utils))
       (mkdir-p "/var/run/zerotier")))
 
-;; (define zerotier-service-type
-;;   (service-type (name 'zerotier-client)
-;;                 (extensions
-;;                  (list (service-extension shepherd-root-service-type
-;;                                           (zerotier-shepherd-service))
-;;                        (service-extension account-service-type
-;;                                           (const %zerotier-accounts))
-;;                        (service-extension activation-service-type
-;;                                           (const %zerotier-activation))))))
+(define zerotier-service-type
+  (service-type (name 'zerotier-client)
+                (extensions
+                 (list (service-extension shepherd-root-service-type
+                                          (zerotier-shepherd-service))
+                       (service-extension account-service-type
+                                          (const %zerotier-accounts))
+                       (service-extension activation-service-type
+                                          (const %zerotier-activation))))))
