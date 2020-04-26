@@ -11,7 +11,7 @@
 
 
 (define (zerotier-shepherd-service)
-  (lambda ()
+  (lambda (config)
     (let* ((log-file "/var/log/zerotier.log")
            ;;(zerotier-package (package zerotier-one))
            )
