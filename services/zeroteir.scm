@@ -1,6 +1,7 @@
 (define-module (services zeroteir)
   #:use-module (vpn zerotier)
   #:use-module (guix gexp)
+  #:use-module (gnu packages admin)
   #:use-module (gnu system shadow))
 
 
