@@ -1,7 +1,7 @@
 (define-module (services zeroteir)
   #:use-module (vpn zerotier)
-  #:use-module (gnu system shadow)
-  )
+  #:use-module (guix gexp)
+  #:use-module (gnu system shadow))
 
 
 
@@ -16,6 +16,7 @@
              (start #~(make-forkexec-constructor
                        (list (string-append #$zerotier-package "/sbin/zerotier-one"))))
              (stop #~(make-kill-destructor)))))))
+
 
 (define %zerotier-accounts
   (list (user-group (name "zerotier")
