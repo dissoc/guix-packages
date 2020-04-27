@@ -21,7 +21,7 @@
              (requirement '(networking))
              (start #~(make-forkexec-constructor
                        (list (string-append
-                              (package zerotier-one)
+                              zerotier-one
                               ;;#$zerotier-package
                               "/sbin/zerotier-one"))))
              (stop #~(make-kill-destructor)))))))
