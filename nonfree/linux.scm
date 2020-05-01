@@ -22,7 +22,7 @@
 	"linux-" version ".tar.xz"))
       (sha256
        (base32
-        "1m06k19pbb3wz8z2dgf03jvzbbdh6q8jwwdz509s902a53vxasz1"))))
+        "13avfvimjyg4lhj9micgib9bb5qpx11cja5liypid0rf2acfmymr"))))
     ;; (native-inputs
     ;;  `(("kconfig" ,(local-file "./linux-custom.conf"))
     ;;    ,@(alist-delete "kconfig" (package-native-inputs linux-libre))
